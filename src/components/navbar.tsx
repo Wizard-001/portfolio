@@ -55,7 +55,7 @@ export default function Navbar() {
         className="fixed top-5 right-5 z-[1001]"
       >
         <a
-          href="https://github.com"
+          href="https://github.com/Wizard-001/portfolio"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white/50 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all text-[10px] font-bold tracking-widest uppercase"

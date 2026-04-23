@@ -30,21 +30,21 @@ const PROJECTS = [
     tags: ["Python", "Scikit-Learn", "Machine Learning"],
     description: "An end-to-end ML pipeline that detects fraudulent credit card transactions with high precision using Logistic Regression, Random Forest, and XGBoost on an imbalanced real-world dataset.",
     image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=2670&auto=format&fit=crop",
-    github: "https://github.com"
+    github: "https://github.com/Wizard-001"
   },
   {
     title: "Car Showcase 3D",
     tags: ["React", "Three.js", "React Three Fiber"],
     description: "An immersive 3D luxury car showroom with scroll-driven animations, interactive model configurators, and a real-time AI-powered recommendation engine — all rendered in the browser.",
     image: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2670&auto=format&fit=crop",
-    github: "https://github.com"
+    github: "https://github.com/Wizard-001"
   },
   {
     title: "Smart AI Surveillance",
     tags: ["Python", "OpenCV", "YOLOv8"],
     description: "A real-time retail surveillance system using YOLOv8 for multi-zone people counting, heatmap generation, and a live analytics dashboard for peak-hour insights and entry/exit tracking.",
     image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?q=80&w=2670&auto=format&fit=crop",
-    github: "https://github.com"
+    github: "https://github.com/Wizard-001"
   }
 ]
 
@@ -941,15 +941,48 @@ export default function Home() {
       <ContactSection />
 
       {/* Footer */}
-      <footer className="py-24 border-t border-white/10 px-8 text-center bg-black">
-        <div className="max-w-4xl mx-auto space-y-12">
-          <div className="flex justify-center gap-12 text-gray-400 text-xs font-bold tracking-widest uppercase py-12 border-b border-white/5">
-            <a href="#" className="hover:text-white transition-colors">TWITTER</a>
-            <a href="#" className="hover:text-white transition-colors">GITHUB</a>
-            <a href="#" className="hover:text-white transition-colors">LINKEDIN</a>
-            <a href="#" className="hover:text-white transition-colors">DRIBBBLE</a>
+      <footer className="py-32 border-t border-white/10 px-8 text-center bg-black relative overflow-hidden">
+        {/* Background glow for footer */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-blue-600/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div className="max-w-4xl mx-auto space-y-16 relative z-10">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="p-12 md:p-16 rounded-[3rem] bg-neutral-900/40 border border-white/10 backdrop-blur-2xl space-y-10 group hover:border-blue-500/30 transition-all duration-700"
+          >
+            <div className="relative w-24 h-24 mx-auto">
+              <div className="absolute inset-0 bg-blue-500/20 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500 opacity-0 group-hover:opacity-100" />
+              <div className="relative w-24 h-24 rounded-3xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center group-hover:scale-110 group-hover:bg-blue-500/20 transition-all duration-500">
+                <Github size={48} className="text-blue-500" />
+              </div>
+            </div>
+
+            <div className="space-y-6">
+              <h3 className="text-4xl md:text-5xl font-bold tracking-tighter uppercase italic">
+                The <span className="text-blue-500">Source</span> Code
+              </h3>
+              <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-light">
+                Every project I build is a journey in engineering. You can explore the complete source code, technical documentation, and <span className="text-white font-medium">live deployment links</span> for all my featured work on GitHub.
+              </p>
+            </div>
+
+            <Button asChild size="lg" className="bg-white text-black hover:bg-neutral-200 rounded-full px-12 h-16 text-[10px] font-bold tracking-[0.3em] uppercase shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:shadow-[0_0_40px_rgba(255,255,255,0.2)] transition-all duration-500">
+              <a href="https://github.com/Wizard-001/portfolio" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3">
+                EXPLORE MY GITHUB <ExternalLink size={16} />
+              </a>
+            </Button>
+          </motion.div>
+          
+          <div className="pt-12 border-t border-white/5 space-y-4">
+            <p className="text-gray-600 text-[10px] font-bold tracking-[0.4em] uppercase">© 2026 DESIGNED & BUILT BY PORTFOLIO. ALL RIGHTS RESERVED.</p>
+            <div className="flex justify-center gap-8">
+              <div className="w-1 h-1 rounded-full bg-blue-500/40" />
+              <div className="w-1 h-1 rounded-full bg-blue-500/40" />
+              <div className="w-1 h-1 rounded-full bg-blue-500/40" />
+            </div>
           </div>
-          <p className="text-gray-600 text-[10px] font-bold tracking-[0.2em] uppercase">© 2026 DESIGNED & BUILT BY PORTFOLIO. ALL RIGHTS RESERVED.</p>
         </div>
       </footer>
     </main>
