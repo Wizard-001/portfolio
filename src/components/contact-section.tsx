@@ -4,10 +4,51 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Mail, Phone, MapPin, Send, MessageSquare } from "lucide-react"
+import { Mail, Phone, MapPin, Send, MessageSquare, CheckCircle2, AlertCircle } from "lucide-react"
 import { GlowingEffectWrapper } from "@/components/ui/glowing-effect-wrapper"
+import { useState } from "react"
 
 export function ContactSection() {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [result, setResult] = useState<{ type: 'success' | 'error', message: string } | null>(null)
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    setResult(null)
+
+    const formData = new FormData(e.currentTarget)
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY
+
+    if (!accessKey) {
+      setResult({ type: 'error', message: "Access key missing. Please check .env.local" })
+      setIsSubmitting(false)
+      return
+    }
+
+    formData.append("access_key", accessKey)
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      })
+
+      const data = await response.json()
+
+      if (data.success) {
+        setResult({ type: 'success', message: "Message sent successfully! I'll get back to you soon." })
+        ;(e.target as HTMLFormElement).reset()
+      } else {
+        setResult({ type: 'error', message: data.message || "Something went wrong. Please try again." })
+      }
+    } catch (error) {
+      setResult({ type: 'error', message: "Failed to send message. Please check your connection." })
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
   return (
     <section id="contact" className="py-32 px-8 bg-black relative overflow-hidden">
       {/* Background glow */}
@@ -102,19 +143,34 @@ export function ContactSection() {
           </div>
 
           {/* Right side: Form */}
-          <motion.div
+          <motion.form
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
+            onSubmit={handleSubmit}
             className="relative group"
           >
             <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-[3rem] blur opacity-20 group-hover:opacity-30 transition duration-1000"></div>
             <div className="relative bg-neutral-900/50 backdrop-blur-xl border border-white/10 rounded-[3rem] p-10 md:p-14 space-y-8">
+              {result && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className={`p-4 rounded-2xl flex items-center gap-3 ${
+                    result.type === 'success' ? 'bg-emerald-500/10 border border-emerald-500/20 text-emerald-400' : 'bg-rose-500/10 border border-rose-500/20 text-rose-400'
+                  }`}
+                >
+                  {result.type === 'success' ? <CheckCircle2 size={20} /> : <AlertCircle size={20} />}
+                  <p className="text-sm font-medium">{result.message}</p>
+                </motion.div>
+              )}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-[10px] font-bold tracking-[0.2em] text-gray-400 uppercase ml-1">Full Name</label>
                   <GlowingEffectWrapper className="rounded-2xl">
                     <Input
+                      name="name"
+                      required
                       placeholder="John Doe"
                       className="bg-neutral-950 border border-white/5 rounded-2xl h-14 px-6 focus:ring-blue-500/50 focus:border-blue-500 transition-all text-white placeholder-gray-500"
                     />
@@ -124,7 +180,9 @@ export function ContactSection() {
                   <label className="text-[10px] font-bold tracking-[0.2em] text-gray-400 uppercase ml-1">Email Address</label>
                   <GlowingEffectWrapper className="rounded-2xl">
                     <Input
+                      name="email"
                       type="email"
+                      required
                       placeholder="john@example.com"
                       className="bg-neutral-950 border border-white/5 rounded-2xl h-14 px-6 focus:ring-blue-500/50 focus:border-blue-500 transition-all text-white placeholder-gray-500"
                     />
@@ -135,6 +193,8 @@ export function ContactSection() {
                 <label className="text-[10px] font-bold tracking-[0.2em] text-gray-400 uppercase ml-1">Subject</label>
                 <GlowingEffectWrapper className="rounded-2xl">
                   <Input
+                    name="subject"
+                    required
                     placeholder="How can I help you?"
                     className="bg-neutral-950 border border-white/5 rounded-2xl h-14 px-6 focus:ring-blue-500/50 focus:border-blue-500 transition-all text-white placeholder-gray-500"
                   />
@@ -144,18 +204,29 @@ export function ContactSection() {
                 <label className="text-[10px] font-bold tracking-[0.2em] text-gray-400 uppercase ml-1">Message</label>
                 <GlowingEffectWrapper className="rounded-[2rem]">
                   <Textarea
+                    name="message"
+                    required
                     placeholder="Tell me about your project..."
                     className="bg-neutral-950 border border-white/5 rounded-[2rem] min-h-[160px] p-6 focus:ring-blue-500/50 focus:border-blue-500 transition-all resize-none text-white placeholder-gray-500"
                   />
                 </GlowingEffectWrapper>
               </div>
               <GlowingEffectWrapper className="rounded-2xl" containerClassName="mt-4">
-                <Button size="lg" className="w-full bg-blue-600 hover:bg-blue-700 text-white rounded-2xl h-16 font-bold tracking-[0.2em] uppercase group border-none shadow-[0_0_20px_rgba(37,99,235,0.2)]">
-                  SEND MESSAGE <Send size={18} className="ml-3 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                <Button 
+                  type="submit"
+                  disabled={isSubmitting}
+                  size="lg" 
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white rounded-2xl h-16 font-bold tracking-[0.2em] uppercase group border-none shadow-[0_0_20px_rgba(37,99,235,0.2)] disabled:opacity-70 disabled:cursor-not-allowed"
+                >
+                  {isSubmitting ? (
+                    <span className="flex items-center gap-2">SENDING... <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 1, ease: "linear" }} className="w-4 h-4 border-2 border-white/20 border-t-white rounded-full" /></span>
+                  ) : (
+                    <span className="flex items-center">SEND MESSAGE <Send size={18} className="ml-3 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" /></span>
+                  )}
                 </Button>
               </GlowingEffectWrapper>
             </div>
-          </motion.div>
+          </motion.form>
         </div>
       </div>
     </section>
