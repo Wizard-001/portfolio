@@ -45,6 +45,13 @@ const PROJECTS = [
     description: "A real-time retail surveillance system using YOLOv8 for multi-zone people counting, heatmap generation, and a live analytics dashboard for peak-hour insights and entry/exit tracking.",
     image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?q=80&w=2670&auto=format&fit=crop",
     github: "https://github.com/Wizard-001"
+  },
+  {
+    title: "Emotion Based Chatbot",
+    tags: ["NLP", "Deep Learning", "Python"],
+    description: "An intelligent conversational agent that detects user emotions in real-time to provide empathetic responses and personalized interactions using advanced NLP techniques.",
+    image: "https://images.unsplash.com/photo-1531746790731-6c087fecd05a?q=80&w=2670&auto=format&fit=crop",
+    github: "https://github.com/Wizard-001/chatbot"
   }
 ]
 
