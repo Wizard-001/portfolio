@@ -873,7 +873,7 @@ export default function Home() {
                       className="w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000 ease-out"
                     />
                     {/* Glass Overlay on Hover */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
+                    <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
                       <div className="flex items-center gap-3 text-white font-bold tracking-[0.2em] text-[10px] transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                         EXPLORE ON GITHUB <ArrowRight size={14} className="text-blue-500" />
                       </div>
@@ -881,7 +881,7 @@ export default function Home() {
                     <div className="absolute top-8 right-8 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 scale-75 group-hover:scale-100">
                       <Zap size={20} className="text-blue-500" />
                     </div>
-                    <div className="absolute bottom-8 left-8 flex gap-2">
+                    <div className="absolute bottom-8 left-8 flex gap-2 transition-opacity duration-500 group-hover:opacity-0 pointer-events-none">
                       {project.tags.map(tag => (
                         <span key={tag} className="px-4 py-1.5 bg-black/60 backdrop-blur-xl rounded-full text-[9px] font-bold tracking-[0.1em] text-white border border-white/10 uppercase">
                           {tag}
