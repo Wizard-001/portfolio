@@ -20,6 +20,9 @@ const skills: Skill[] = [
   { name: "NLP", category: "AI/ML", value: 80 },
   { name: "Python", category: "AI/ML", value: 90 },
   { name: "PyTorch", category: "AI/ML", value: 70 },
+  // DSA/CP
+  { name: "C++", category: "DSA", value: 85 },
+  { name: "DSA", category: "DSA", value: 90 },
   // Others
   { name: "TypeScript", category: "Frontend", value: 85 },
   { name: "Tailwind", category: "Frontend", value: 95 },
