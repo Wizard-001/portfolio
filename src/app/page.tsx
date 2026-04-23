@@ -183,7 +183,7 @@ export default function Home() {
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.3 }}
-                className="grid grid-cols-2 gap-8 pt-8 border-t border-white/10"
+                className="grid grid-cols-2 lg:grid-cols-5 gap-6 pt-8 border-t border-white/10"
               >
                 <div>
                   <h4 className="text-white font-bold text-2xl mb-2">99.9%</h4>
@@ -192,6 +192,18 @@ export default function Home() {
                 <div>
                   <h4 className="text-white font-bold text-2xl mb-2">Zero</h4>
                   <p className="text-gray-500 text-xs font-bold tracking-widest uppercase">Compromise on ML</p>
+                </div>
+                <div>
+                  <h4 className="text-white font-bold text-2xl mb-2">1200+</h4>
+                  <p className="text-gray-500 text-xs font-bold tracking-widest uppercase">Codeforces</p>
+                </div>
+                <div>
+                  <h4 className="text-white font-bold text-2xl mb-2">300+</h4>
+                  <p className="text-gray-500 text-xs font-bold tracking-widest uppercase">Problems Solved</p>
+                </div>
+                <div>
+                  <h4 className="text-white font-bold text-2xl mb-2">C++</h4>
+                  <p className="text-gray-500 text-xs font-bold tracking-widest uppercase">Primary DSA</p>
                 </div>
               </motion.div>
             </div>
