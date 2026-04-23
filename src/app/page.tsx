@@ -30,14 +30,14 @@ const PROJECTS = [
     tags: ["Python", "Scikit-Learn", "Machine Learning"],
     description: "An end-to-end ML pipeline that detects fraudulent credit card transactions with high precision using Logistic Regression, Random Forest, and XGBoost on an imbalanced real-world dataset.",
     image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=2670&auto=format&fit=crop",
-    github: "https://github.com/Wizard-001"
+    github: "https://github.com/Wizard-001/credit-card-fraud-detection-system"
   },
   {
     title: "Car Showcase 3D",
     tags: ["React", "Three.js", "React Three Fiber"],
     description: "An immersive 3D luxury car showroom with scroll-driven animations, interactive model configurators, and a real-time AI-powered recommendation engine — all rendered in the browser.",
     image: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2670&auto=format&fit=crop",
-    github: "https://github.com/Wizard-001"
+    github: "https://github.com/Wizard-001/car-showcase-3d"
   },
   {
     title: "Smart AI Surveillance",
@@ -853,7 +853,12 @@ export default function Home() {
                 transition={{ duration: 0.8, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
                 style={{ perspective: "1000px" }}
               >
-                <Link href="#projects" className="group flex flex-col space-y-6 cursor-pointer relative">
+                <a 
+                  href={project.github} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="group flex flex-col space-y-6 cursor-pointer relative"
+                >
                   <div className="relative aspect-[16/10] overflow-hidden rounded-[2.5rem] bg-neutral-900 border border-white/5">
                     <img 
                       src={project.image} 
@@ -863,7 +868,7 @@ export default function Home() {
                     {/* Glass Overlay on Hover */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
                       <div className="flex items-center gap-3 text-white font-bold tracking-[0.2em] text-[10px] transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                        EXPLORE CASE STUDY <ArrowRight size={14} className="text-blue-500" />
+                        EXPLORE ON GITHUB <ArrowRight size={14} className="text-blue-500" />
                       </div>
                     </div>
                     <div className="absolute top-8 right-8 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 scale-75 group-hover:scale-100">
@@ -888,7 +893,7 @@ export default function Home() {
                       {project.description}
                     </p>
                   </div>
-                </Link>
+                </a>
               </motion.div>
             ))}
           </div>
