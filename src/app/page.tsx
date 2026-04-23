@@ -48,8 +48,8 @@ const PROJECTS = [
   },
   {
     title: "Emotion Based Chatbot",
-    tags: ["NLP", "Deep Learning", "Python"],
-    description: "An intelligent conversational agent that detects user emotions in real-time to provide empathetic responses and personalized interactions using advanced NLP techniques.",
+    tags: ["LangChain", "Mistral AI", "Python"],
+    description: "A sophisticated conversational AI built with LangChain and Mistral AI API that analyzes user sentiment and emotion to deliver contextually aware and empathetic responses.",
     image: "/projects/emotion-chatbot.png",
     github: "https://github.com/Wizard-001/chatbot"
   }
