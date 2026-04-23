@@ -37,8 +37,7 @@ const PROJECTS = [
     tags: ["React", "Three.js", "React Three Fiber"],
     description: "An immersive 3D luxury car showroom with scroll-driven animations, interactive model configurators, and a real-time AI-powered recommendation engine — all rendered in the browser.",
     image: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2670&auto=format&fit=crop",
-    github: "https://github.com/Wizard-001/car-showcase-3d",
-    link: "https://car-showcase-3d-hxy9igeuz-wizard-001s-projects.vercel.app/"
+    github: "https://github.com/Wizard-001/car-showcase-3d"
   },
   {
     title: "Smart AI Surveillance",
@@ -52,8 +51,7 @@ const PROJECTS = [
     tags: ["LangChain", "Mistral AI", "Python"],
     description: "A sophisticated conversational AI built with LangChain and Mistral AI API that analyzes user sentiment and emotion to deliver contextually aware and empathetic responses.",
     image: "/projects/emotion-chatbot.png",
-    github: "https://github.com/Wizard-001/chatbot",
-    link: "https://chatbot-dhgxtd3wklmidsappq2sgjf.streamlit.app/"
+    github: "https://github.com/Wizard-001/chatbot"
   }
 ]
 
@@ -167,8 +165,8 @@ export default function Home() {
                 transition={{ delay: 0.1 }}
                 className="text-5xl md:text-7xl font-bold tracking-tighter leading-[0.9]"
               >
-                DSA <span className="text-blue-500 italic">&</span> <br />
-                PROBLEM SOLVING
+                PYTHON <span className="text-blue-500 italic">&</span> <br />
+                MACHINE LEARNING
               </motion.h2>
               <motion.p 
                 initial={{ y: 50, opacity: 0 }}
@@ -177,7 +175,7 @@ export default function Home() {
                 transition={{ delay: 0.2 }}
                 className="text-gray-400 text-lg leading-relaxed max-w-xl"
               >
-                Solving complex computational challenges through optimized algorithms and data structures. Active competitive programmer with a focus on efficiency and scalability.
+                Engineering intelligent systems that learn, adapt, and predict. Expertise in building robust predictive models, from Linear Regression to Support Vector Machines (SVM).
               </motion.p>
               
               <motion.div 
@@ -185,19 +183,15 @@ export default function Home() {
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.3 }}
-                className="grid grid-cols-2 md:grid-cols-3 gap-8 pt-8 border-t border-white/10"
+                className="grid grid-cols-2 gap-8 pt-8 border-t border-white/10"
               >
                 <div>
-                  <h4 className="text-white font-bold text-2xl mb-2">1200+</h4>
-                  <p className="text-gray-500 text-xs font-bold tracking-widest uppercase">Codeforces Rating</p>
+                  <h4 className="text-white font-bold text-2xl mb-2">99.9%</h4>
+                  <p className="text-gray-500 text-xs font-bold tracking-widest uppercase">Performance Score</p>
                 </div>
                 <div>
-                  <h4 className="text-white font-bold text-2xl mb-2">300+</h4>
-                  <p className="text-gray-500 text-xs font-bold tracking-widest uppercase">Problems Solved</p>
-                </div>
-                <div>
-                  <h4 className="text-white font-bold text-2xl mb-2">C++</h4>
-                  <p className="text-gray-500 text-xs font-bold tracking-widest uppercase">Primary DSA Language</p>
+                  <h4 className="text-white font-bold text-2xl mb-2">Zero</h4>
+                  <p className="text-gray-500 text-xs font-bold tracking-widest uppercase">Compromise on ML</p>
                 </div>
               </motion.div>
             </div>
@@ -245,14 +239,14 @@ export default function Home() {
                       <div className="space-y-4">
                         <div className="h-px w-12 bg-blue-500/50" />
                         <h3 className="text-3xl md:text-4xl font-black tracking-normal bg-clip-text text-transparent bg-gradient-to-b from-white to-white/40 mb-2">
-                          DSA LOGIC
+                          ML ALGORITHM
                         </h3>
                         <p className="text-gray-500 text-sm leading-relaxed max-w-xs font-medium">
-                          Implementing high-performance algorithms with optimal time and space complexity.
+                          Implementing core predictive logic through advanced mathematical modeling and algorithmic optimization.
                         </p>
                       </div>
                       <div className="grid grid-cols-1 gap-3">
-                        {["Dynamic Programming", "Graph Theory", "Bit Manipulation", "Segment Trees", "STL Optimization"].map((algo, i) => (
+                        {["Linear Regression", "Logistic Regression", "Decision Trees", "Random Forest", "K-Means"].map((algo, i) => (
                           <motion.div 
                             key={algo} 
                             initial={{ x: -10, opacity: 0 }}
@@ -276,11 +270,11 @@ export default function Home() {
                           TECH STACK
                         </h3>
                         <p className="text-gray-500 text-sm leading-relaxed max-w-xs font-medium">
-                          Utilizing C++ and low-level optimizations for maximum computational throughput.
+                          Leveraging industry-standard Python libraries for scalable data engineering and intelligent systems.
                         </p>
                       </div>
                       <div className="grid grid-cols-1 gap-3">
-                        {["C++ 17/20", "Standard Template Library", "Custom Allocators", "Memory Management", "GDB Debugging"].map((tech, i) => (
+                        {["Python", "Pandas", "Matplotlib", "Seaborn", "Scikit-Learn"].map((tech, i) => (
                           <motion.div 
                             key={tech} 
                             initial={{ x: -10, opacity: 0 }}
@@ -302,10 +296,10 @@ export default function Home() {
                 
                 <div className="absolute bottom-10 left-10 right-10 flex justify-between items-center z-40 pointer-events-none">
                   <div className="px-4 py-2 bg-black/50 backdrop-blur-md border border-white/10 rounded-full text-[10px] font-bold tracking-[0.2em] uppercase text-blue-400">
-                    CODEFORCES SPECIALIST
+                    LINEAR REGRESSION
                   </div>
                   <div className="px-4 py-2 bg-black/50 backdrop-blur-md border border-white/10 rounded-full text-[10px] font-bold tracking-[0.2em] uppercase text-emerald-400">
-                    C++ DSA
+                    SVM
                   </div>
                 </div>
                 </div>
@@ -324,21 +318,21 @@ export default function Home() {
                     <Binary size={20} className="text-blue-500" />
                   </div>
                   <div>
-                    <h3 className="text-white font-bold tracking-tight text-xl uppercase">Algorithmic Efficiency</h3>
-                    <p className="text-gray-500 text-[10px] font-bold tracking-widest uppercase">Optimization Metrics</p>
+                    <h3 className="text-white font-bold tracking-tight text-xl uppercase">Model Architecture</h3>
+                    <p className="text-gray-500 text-[10px] font-bold tracking-widest uppercase">Performance Breakdown</p>
                   </div>
                 </div>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <div className="flex justify-between text-[10px] font-bold tracking-tighter mb-1">
-                      <span className="text-gray-400 uppercase">Time Complexity</span>
-                      <span className="text-blue-400">O(log N)</span>
+                      <span className="text-gray-400 uppercase">Linearity Ratio</span>
+                      <span className="text-blue-400">0.982</span>
                     </div>
                     <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden">
                       <motion.div 
                         initial={{ width: 0 }}
-                        whileInView={{ width: "95%" }}
+                        whileInView={{ width: "98.2%" }}
                         transition={{ duration: 1, delay: 0.6 }}
                         className="h-full bg-blue-500"
                       />
@@ -346,13 +340,13 @@ export default function Home() {
                   </div>
                   <div className="space-y-2">
                     <div className="flex justify-between text-[10px] font-bold tracking-tighter mb-1">
-                      <span className="text-gray-400 uppercase">Space Optimization</span>
-                      <span className="text-blue-400">O(1)</span>
+                      <span className="text-gray-400 uppercase">SV Kernel Density</span>
+                      <span className="text-blue-400">RBF / Poly</span>
                     </div>
                     <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden">
                       <motion.div 
                         initial={{ width: 0 }}
-                        whileInView={{ width: "88%" }}
+                        whileInView={{ width: "85%" }}
                         transition={{ duration: 1, delay: 0.7 }}
                         className="h-full bg-blue-500/40"
                       />
@@ -867,7 +861,7 @@ export default function Home() {
                 style={{ perspective: "1000px" }}
               >
                 <a 
-                  href={project.link || project.github} 
+                  href={project.github} 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="group flex flex-col space-y-6 cursor-pointer relative"
@@ -881,7 +875,7 @@ export default function Home() {
                     {/* Glass Overlay on Hover */}
                     <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
                       <div className="flex items-center gap-3 text-white font-bold tracking-[0.2em] text-[10px] transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                        {project.link ? "VIEW DEPLOYED PROJECT" : "EXPLORE ON GITHUB"} <ArrowRight size={14} className="text-blue-500" />
+                        EXPLORE ON GITHUB <ArrowRight size={14} className="text-blue-500" />
                       </div>
                     </div>
                     <div className="absolute top-8 right-8 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 scale-75 group-hover:scale-100">
