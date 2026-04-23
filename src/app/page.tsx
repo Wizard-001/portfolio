@@ -50,7 +50,7 @@ const PROJECTS = [
     title: "Emotion Based Chatbot",
     tags: ["NLP", "Deep Learning", "Python"],
     description: "An intelligent conversational agent that detects user emotions in real-time to provide empathetic responses and personalized interactions using advanced NLP techniques.",
-    image: "https://images.unsplash.com/photo-1531746790731-6c087fecd05a?q=80&w=2670&auto=format&fit=crop",
+    image: "/projects/emotion-chatbot.png",
     github: "https://github.com/Wizard-001/chatbot"
   }
 ]
